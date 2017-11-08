@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head><title>GitHub Settings</title></head>
+<body width="360px">
+<head>
+  <style type="text/css">
+  body {
+    min-width: 140px;
+  }
+
+  .title {
+    text-align: center;;
+  }
+
+  .caption {
+    white-space: nowrap;
+  }
+  </style>
+</head>
+
+<div class="title">
+  <h3>GitHub Settings</h3>
+</div>
+
+<table>
+  <tr>
+    <td class="caption">Ignore Blank</td>
+    <td><input type="checkbox" id="op_ignore_blank" value="1"></td>
+  </tr>
+  <tr>
+    <td class="caption">Tab Shift</td>
+    <td>
+      <select id="op_tab_shift">
+        <option value="0">Auto</option>
+        <option value="2">2</<option>
+        <option value="4">4</<option>
+        <option value="8">8</<option>
+      </select>
+    </td>
+  </tr>
+</table>
+
+<script src="options.js"></script>
+</body>
+</html>
