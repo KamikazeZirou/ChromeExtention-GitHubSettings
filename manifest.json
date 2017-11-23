@@ -24,5 +24,7 @@
     "webRequest",
     "webRequestBlocking",
     "storage",
-    "declarativeContent"]
+    "declarativeContent",
+    "tabs"
+  ]
 }

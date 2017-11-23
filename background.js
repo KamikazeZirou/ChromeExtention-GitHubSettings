@@ -32,6 +32,19 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
     var storageChange = changes[key];
     settings[key] = storageChange.newValue;
   }
+
+  chrome.tabs.query({
+      url : "https://github.com/*"
+    },
+    function(tabs) {
+      var tabKey;
+      for (tabKey in tabs) {
+        chrome.tabs.reload(tabs[tabKey].id,
+          { bypassCache : true }
+        );
+      }
+    }
+  );
 });
 
 chrome.webRequest.onBeforeRequest.addListener(
