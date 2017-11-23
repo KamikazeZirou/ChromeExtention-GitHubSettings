@@ -8,7 +8,7 @@
     "48": "images/Git-Icon-Black48.png",
     "128": "images/Git-Icon-Black128.png"
   },
-  "browser_action": {
+  "page_action": {
     "default_title": "GitHub Settings",
     "default_icon": {
       "16": "images/Git-Icon-Black16.png",
@@ -20,5 +20,9 @@
   "background": {
     "scripts": ["URI.js", "background.js"]
   },
-  "permissions": ["webRequest", "webRequestBlocking", "storage", "https://github.com/"]
+  "permissions": ["https://github.com/",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "declarativeContent"]
 }

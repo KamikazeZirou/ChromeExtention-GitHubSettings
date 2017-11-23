@@ -1,3 +1,22 @@
+chrome.runtime.onInstalled.addListener(function() {
+  // Replace all rules ...
+  chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
+    // With a new rule ...
+    chrome.declarativeContent.onPageChanged.addRules([
+      {
+        // That fires when a page's URL contains a 'github.com' ...
+        conditions: [
+          new chrome.declarativeContent.PageStateMatcher({
+            pageUrl: { hostContains: "github.com" },
+          })
+        ],
+        // And shows the extension's page action.
+        actions: [ new chrome.declarativeContent.ShowPageAction() ]
+      }
+    ]);
+  });
+});
+
 var settings = {};
 
 chrome.storage.sync.get({
@@ -38,7 +57,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     urls: [
       "https://github.com/*"
     ],
-    types: ["main_frame"]
+    types: ["main_frame", "xmlhttprequest"]
   },
   // extraInfoSpec
   ["blocking"]
