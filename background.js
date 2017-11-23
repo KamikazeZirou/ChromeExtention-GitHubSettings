@@ -30,7 +30,7 @@ var settings = {};
 //
 chrome.storage.sync.get({
   ignore_blank : false,
-  tab_shift : 0,
+  tab_stop : 0,
 }, function(items) {
   settings = items;
 });
@@ -73,8 +73,8 @@ chrome.webRequest.onBeforeRequest.addListener(
       uri.removeQuery("w");
     }
 
-    if (0 < settings["tab_shift"]) {
-      uri.setQuery({ "ts" : settings["tab_shift"] });
+    if (0 < settings["tab_stop"]) {
+      uri.setQuery({ "ts" : settings["tab_stop"] });
     } else {
       uri.removeQuery("ts");
     }

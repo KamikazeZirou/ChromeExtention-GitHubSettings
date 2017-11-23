@@ -15,10 +15,10 @@
   document.addEventListener("DOMContentLoaded", function() {
     chrome.storage.sync.get({
       ignore_blank : false,
-      tab_shift : 0,
+      tab_stop : 0,
     }, function(settings) {
       document.getElementById("op_ignore_blank").checked = settings.ignore_blank;
-      selectByValue(document.getElementById("op_tab_shift"), settings.tab_shift);
+      selectByValue(document.getElementById("op_tab_stop"), settings.tab_stop);
     });
   });
 
@@ -34,12 +34,12 @@
   });
 
   //
-  // When the setting of "Tab Shift" is changed, update storage.
+  // When the setting of "Tab stop" is changed, update storage.
   //
-  document.getElementById("op_tab_shift").addEventListener("change", function() {
-    var tab_shift = document.getElementById("op_tab_shift").value;
+  document.getElementById("op_tab_stop").addEventListener("change", function() {
+    var tab_stop = document.getElementById("op_tab_stop").value;
     chrome.storage.sync.set({
-      tab_shift : tab_shift
+      tab_stop : tab_stop
     }, function() {
     });
   });
