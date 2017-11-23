@@ -1,3 +1,6 @@
+//
+// Set popup icon to active if GitHub pages is shown.
+//
 chrome.runtime.onInstalled.addListener(function() {
   // Replace all rules ...
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
@@ -17,8 +20,14 @@ chrome.runtime.onInstalled.addListener(function() {
   });
 });
 
+//
+// The settings of this extention.
+//
 var settings = {};
 
+//
+// Load the settings of this extention.
+//
 chrome.storage.sync.get({
   ignore_blank : false,
   tab_shift : 0,
@@ -26,6 +35,10 @@ chrome.storage.sync.get({
   settings = items;
 });
 
+//
+// If the settings of this extention is changed,
+// update "settings" and reload GitHub pages.
+//
 chrome.storage.onChanged.addListener(function(changes, namespace) {
   var key;
   for (key in changes) {
@@ -47,6 +60,9 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
   );
 });
 
+//
+// Add queries to url when GitHub page is loaded.
+//
 chrome.webRequest.onBeforeRequest.addListener(
   function(info) {
     var uri = new URI(info.url);
